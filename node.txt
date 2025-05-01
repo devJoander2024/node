@@ -1,0 +1,117 @@
+Node
+Node.js no es un lenguaje de programación, ni un framework, ni una librería, es un entorno de ejecución para JavaScript que permite ejecutar código JavaScript fuera de un navegador.
+JavaScript originalmente fue creado para ejecutarse en el navegador (cliente), pero Node.js permite que puedas ejecutar JavaScript en el servidor o en la terminal,
+e incluso en dispositivos móviles.
+Node es asíncrono y orientado a eventos
+Esto significa que las operaciones en Node.js (como leer archivos o hacer peticiones HTTP) no bloquean el flujo del programa, lo cual mejora el rendimiento y hace
+que las aplicaciones sean muy eficientes en cuanto a la gestión de múltiples tareas simultáneas (esto es ideal para aplicaciones en tiempo real, como chat o servidores web).
+
+Arquitectura Orientada a Eventos (Event-Driven Architecture)
+Es un modelo de programación donde las aplicaciones responden a eventos (acciones, cambios de estado, o mensajes) en lugar de seguir un flujo de ejecución secuencial.
+En lugar de que el programa siga un flujo lineal o secuencial, el programa espera a que ocurran eventos (como una acción del usuario, la llegada de datos, o una señal externa)
+y luego responde a esos eventos.
+Node.js tiene un Event Loop (bucle de eventos) que continuamente verifica si hay eventos pendientes y los procesa. Este bucle gestiona las solicitudes y las responde cuando 
+se completan.
+
+Javascript
+JavaScript es un lenguaje de programación que fue creado para ser ejecutado principalmente en los navegadores web. Es el lenguaje que permite hacer interacciones
+dinámicas en páginas web, como animaciones, validación de formularios, o carga dinámica de contenido. Chrome usa el motor V8 para ejecutar JavaScript.
+El motor V8 es un motor de ejecución de JavaScript que fue desarrollado por Google y es usado en Chrome para ejecutar código JavaScript en el navegador.
+¿Qué hace el motor V8?: El motor V8 toma el código JavaScript que escribes, lo convierte en código de máquina (un lenguaje que puede entender directamente la computadora) 
+y lo ejecuta.
+
+
+Lenguajes compilados vs. interpretados
+
+Los lenguajes de programación pueden clasificarse principalmente en dos categorías según cómo se ejecuta el código:
+
+Lenguajes compilados:
+Proceso: El código fuente (el código que escribes) se convierte completamente a código de máquina por un compilador antes de ejecutarse.
+
+Ejemplo: C, C++, Go.
+
+Ventaja: El código de máquina es muy rápido, porque ya está listo para ser ejecutado directamente por la máquina.
+
+Desventaja: El proceso de compilación puede ser más lento al principio, y necesitas un paso intermedio (compilar el código antes de ejecutarlo).
+
+Ejemplo:
+
+Escribes un programa en C.
+
+Lo pasas a través de un compilador que genera código de máquina.
+
+Luego, el sistema operativo ejecuta ese código de máquina.
+
+Lenguajes interpretados:
+Proceso: En lugar de compilar todo el código de una vez, el intérprete lee el código línea por línea y lo ejecuta directamente.
+
+Ejemplo: JavaScript, Python, Ruby.
+
+Ventaja: El código puede ejecutarse de inmediato, sin necesidad de una compilación previa.
+
+Desventaja: La ejecución suele ser más lenta que los lenguajes compilados, porque cada línea de código se tiene que interpretar cada vez que se ejecuta.
+
+Ejemplo:
+
+Escribes un programa en JavaScript.
+
+El motor JavaScript (como V8 en Chrome o Node.js) lee y ejecuta el código línea por línea, directamente.
+
+
+npm (Node Package Manager)
+Es el gestor de paquetes para Node.js. Permite instalar, actualizar y gestionar bibliotecas o módulos de JavaScript que usas en tus proyectos.
+nvm (Node Version Manager)
+Es una herramienta para gestionar múltiples versiones de Node.js en tu sistema.
+fnm (Fast Node Manager)
+Es una alternativa más rápida a nvm para gestionar versiones de Node.js.
+
+
+¿Qué es window en JavaScript?
+En JavaScript, el objeto window representa el objeto global en el contexto del navegador. Es un contenedor que proporciona acceso a las 
+funcionalidades del navegador, como la manipulación de la página web, la gestión de eventos, y la interacción con el usuario. 
+console.log(window);
+El objeto window es el objeto global en el navegador, lo que significa que contiene muchas de las funciones y métodos globales que puedes
+usar en tu código JavaScript sin tener que importarlas o definirlas explícitamente.
+
+Además, las variables y funciones globales que creas en el navegador (sin usar var, let, o const) se agregan automáticamente a window. Por ejemplo:
+var mensaje = "Hola";
+console.log(window.mensaje); // "Hola", porque `mensaje` se agrega a `window` si se declara sin `let` o `const` 
+
+Node.js no tiene un navegador ni acceso al DOM (Modelo de Objetos del Documento). Por lo tanto, no necesita el objeto window para interactuar con una página web.
+En lugar de window, Node.js tiene un objeto global llamado 'global' que sirve como el objeto global en su entorno, pero no tiene acceso a las propiedades 
+y métodos relacionados con el navegador (como window.alert() o window.document).
+console.log(global); 
+Tanto 'global' como 'window' son variables globales de ambos lados, sin embargo existe una que está disponible en amos entornos, su nombre es 'globalThis';
+
+Módulos en Node.js: MJS y CJS
+Node.js soporta módulos para organizar el código en partes reutilizables. Los módulos son fragmentos de código que puedes exportar e importar entre diferentes archivos, facilitando la modularización y reutilización.
+En Node.js, hay dos tipos principales de módulos:
+
+1.  CJS (CommonJS)
+Es el sistema de módulos tradicional en Node.js. Utiliza require() para importar módulos y module.exports o exports para exportarlos.
+
+// Exportar una función
+module.exports = function(a, b) {
+  return a + b;
+};
+
+
+// Importar el módulo con `require()`
+const sumar = require('./sumar');
+
+console.log(sumar(2, 3));  // Imprime 5
+
+
+2. MJS (ESM - ECMAScript Modules)
+A partir de las versiones más recientes de Node.js, se introdujo el soporte para módulos ES6. Utiliza import y export para manejar la
+importación y exportación de módulos, como en JavaScript moderno.
+
+// Exportar una función
+export function sumar(a, b) {
+  return a + b;
+}
+
+// Importar el módulo con `import`, es necesario usar la extensión del archivo al momento de importar
+import { sumar } from './sumar.mjs';
+
+console.log(sumar(2, 3));  // Imprime 5
