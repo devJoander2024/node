@@ -29,15 +29,3 @@ console.log("Iniciando segunda lectura del archivo");
 fs.readFile("archivo.txt", "utf-8", (err, text) => {
   console.log("leyendo el texto del segundo archivo ", text);
 });
-
-// Asíncrono con promesas
-console.log("Iniciando primera lectura del archivo con promesas ");
-
-fs.readFile("archivo.txt", "utf-8").then((text) => {
-  console.log("leyendo el texto del primer archivo con promesas ", text);
-});
-console.log("Iniciando segunda lectura del archivo con promesas ");
-
-fs.readFile("archivo.txt", "utf-8").then((text) => {
-  console.log("leyendo el texto del segundo archivo con promesas ", text);
-});
