@@ -20,9 +20,13 @@ console.log("Tamaño del archivo:", stats.size); // tamaño en bytes
 // Asíncrono
 console.log("Iniciando primera lectura del archivo");
 
+// callback
+// Un callback es una función que se pasa como argumento a otra función,
+// y que se ejecuta después de que la tarea principal termina (especialmente en tareas asincrónicas).
+
 fs.readFile("archivo.txt", "utf-8", (err, text) => {
   // El tercer argumento es un callback,  son funciones que se ejecutan cuando se ejcuta una tarea asincrona
-  console.log("leyendo el texto del primer archivo ", text);
+  console.log("leyendo el texto del primer archivo................. ", text);
 });
 console.log("Iniciando segunda lectura del archivo");
 
